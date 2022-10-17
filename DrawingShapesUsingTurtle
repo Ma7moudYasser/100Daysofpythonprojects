@@ -1,0 +1,43 @@
+from turtle import *
+
+myShape = Turtle()
+myScreen = Screen()
+
+
+
+
+
+
+def triangle(shape):
+    for _ in range(3):
+        shape.forward(100)
+        shape.left(-120)
+def square(shape):
+    for _ in range(4):
+        shape.forward(100)
+        shape.left(-90)
+def pentagon(shape):
+    for _ in range(5):
+        shape.forward(100)
+        shape.left(-72)
+def hexagon(shape):
+    for _ in range(6):
+        shape.forward(100)
+        shape.left(-60)
+def heptagon(shape):
+    for _ in range(7):
+        shape.forward(100)
+        shape.left(-51.42857142857143)
+def octagon(shape):
+    for _ in range(8):
+        shape.forward(100)
+        shape.left(-45)
+
+triangle(myShape)
+square(myShape)
+pentagon(myShape)
+hexagon(myShape)
+heptagon(myShape)
+octagon(myShape)
+myScreen.exitonclick()
+
