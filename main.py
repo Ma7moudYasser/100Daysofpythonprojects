@@ -1,75 +1,34 @@
-from art import logo
 import random
+import turtle as t
+color_list = [(253, 251, 248), (254, 250, 252), (232, 251, 242), (198, 12, 32), (250, 237, 17), (39, 76, 189), (38, 217, 68), (238, 227, 5), (229, 159, 46), (27, 40, 157), (215, 74, 12), (15, 154, 16), (199, 14, 10), (242, 246, 252), (243, 33, 165), (229, 17, 121), (73, 9, 31), (60, 14, 8), (224, 141, 211), (10, 97, 61), (221, 160, 9), (17, 18, 43), (46, 214, 232), (11, 227, 239), (81, 73, 214), (238, 156, 220), (74, 213, 167), (77, 234, 202), (52, 234, 243), (3, 67, 40)]
+
+tim = t.Turtle()
+t.colormode(255)
+tim.speed("fastest")
+tim.penup()
+tim.hideturtle()
 
 
-print(logo)
-print("Welcome to the Number Guessing Game!")
-print("I am thinking of a number between 1 and 100")
-level_of_difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
-the_guessed_number = random.randint(1,100)
-print(the_guessed_number)
-number_of_attempts_easy = 10
-number_of_attempts_hard = 5
-is_game_over = False
-user_guess = 0
+tim.setheading(225)
+tim.forward(300)
+tim.setheading(0)
+number_of_dots = 100
+for dot_count in range(1, number_of_dots + 1):
+    tim.dot(20, random.choice(color_list))
+    tim.forward(50)
+    if dot_count % 10 == 0:
+        tim.setheading(90)
+        tim.forward(50)
+        tim.setheading(180)
+        tim.forward(500)
+        tim.setheading(0)
 
 
-def game_analogy(guessed, actual):
-    if abs(actual - guessed) < 3:
-        return "Too low"
-    elif abs(actual - guessed) > 10:
-        return "Too high"
-
-def counter(attempts):
-    attempts-=1
-    return attempts
-def guessing_game():
-    while not is_game_over:
-        user_attempts = 0
-
-
-
-        if level_of_difficulty == 'easy':
-            user_attempts = 10
-            for i in range(user_attempts):
-
-                user_guess = int(input("Make a guess: "))
-
-                if user_guess == the_guessed_number:
-                    print("Congratulations you have the right guess")
-                    is_game_over = True
-                    break
-                else:
-                    user_attempts-=1
-
-
-                    if user_attempts == 0:
-                        print("Game over")
-                        is_game_over = True
-                    else:
-
-                        print(f"You still have {user_attempts} remaining attempts")
-                        print(game_analogy(user_guess, the_guessed_number))
-
-        elif level_of_difficulty == 'hard':
-            user_attempts = 5
-            for i in range(user_attempts):
-
-                user_guess = int(input("Make a guess: "))
-
-                if user_guess == the_guessed_number:
-                    print("Congratulations you have the right guess")
-                    is_game_over = True
-                    break
-                else:
-                    user_attempts -= 1
-
-                    if user_attempts == 0:
-                        print("Game over")
-                        is_game_over = True
-                    else:
-
-                        print(f"You still have {user_attempts} remaining attempts")
-                        print(game_analogy(user_guess, the_guessed_number))
-guessing_game()
-
+    
+    
+    
+    
+    
+    
+screen = t.Screen()
+screen.exitonclick()
